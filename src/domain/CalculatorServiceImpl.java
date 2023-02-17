@@ -28,24 +28,24 @@ public class CalculatorServiceImpl implements CalculatorService {
                     }
 
                     if (logging) {
-                        String logMessage = String.format("[%s][log] parsed value = %d",
+                        String logMessage = String.format("[%s] parsed value = %d",
                                 lineNumber, value);
                         LoggerImpl.log(logMessage);
 
-                        logMessage = String.format("[%s][log] accumulation : %s on line %d",
+                        logMessage = String.format("[%s] accumulation : %s on line %d",
                                 lineNumber, result, lineNumber);
                         LoggerImpl.log(getOperationSymbol(operation) + value + " (= " + result + ")");
                         LoggerImpl.log(logMessage);
                     }
                 } catch (NumberFormatException e) {
-                    String errorMessage = String.format("[%s][error] Invalid value on line %d",
+                    String errorMessage = String.format("[%s] Invalid value on line %d",
                             lineNumber, lineNumber);
                     LoggerImpl.error(errorMessage);
                 }
                 lineNumber++;
             }
         } catch (Exception e) {
-            String errorMessage = String.format("[%s][error] Error reading file %s", 0, filename);
+            String errorMessage = String.format("[%s] Error reading file %s", 0, filename);
             LoggerImpl.error(errorMessage);
         }
 
@@ -72,7 +72,7 @@ public class CalculatorServiceImpl implements CalculatorService {
         sb.append("\n");
 
         if (logging) {
-            sb.append(String.format("%s [%s][log] end of program", getTimestamp(), 0));
+            sb.append(String.format("%s [%s] end of program", getTimestamp(), 0));
         } else {
             sb.append(getOperationSymbol(operation));
             sb.append(" ");

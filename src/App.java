@@ -13,6 +13,6 @@ public class App {
         CalculatorService calculator = new CalculatorServiceImpl();
         String result = calculator.calculate(filename, operation, logging);
 
-        LoggerImpl.log( result);
+        LoggerImpl.log(result);
     }
 }
